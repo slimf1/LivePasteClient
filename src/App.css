@@ -1,0 +1,76 @@
+body {
+  background-color: #1E1E1E;  
+  /*color: #FFF;*/
+  color: #dcdcdc;
+  font-size: 8.5pt;
+  font-weight: lighter;
+}
+
+.editor {
+  font-size: 8.5pt;
+  font-family: monospace;
+  display: inline-block;
+  background: none;
+  border: none;
+	font-weight: lighter;
+  outline: none;
+  resize: none;
+	/*width: 95%;
+	height: 90vh;*/
+  padding: 1.5em 0 0 4em;
+  color: #dcdcdc;
+}
+
+textarea.editor {
+  width: 95%;
+  height: 90vh;
+}
+
+pre {
+  margin: 0;
+}
+
+.line-numbers {
+  color: inherit;
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  width: 2.5em;
+  font-size: inherit;
+  text-align: right;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgb(132, 125, 231, 0.5);
+  padding: 1rem; 
+}
+
+.menu h1 {
+  margin: -10px 0 -10px 0;
+}
+
+.menu p {
+  margin-bottom: 0;
+}
+
+.error-message {
+  color: #FF0030; 
+}
+
+kbd {
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: .85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
