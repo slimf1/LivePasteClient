@@ -15,7 +15,10 @@ const StaticEditor: React.FC<StaticEditorProps> = ({
 }) => {
   return (
     <pre>
-      <LineNumbers lineNumbers={content?.split('\n').length ?? 1} />
+      {lineNumbers 
+        ? <LineNumbers lineNumbers={content?.split('\n').length ?? 1} />
+        : null
+      }
       <code 
         ref={innerRef} 
         className={`editor ${isError ? 'error-message' : ''}`}

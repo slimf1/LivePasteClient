@@ -18,7 +18,7 @@ const Home: React.FC = () => {
       },
       body: JSON.stringify({
         content: content,
-        creationDate: new Date().toISOString() // Devrait-être géré par le back
+        language: 'c'
       })
     }).then(async response => {
       if (response.status === 201) {

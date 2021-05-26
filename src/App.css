@@ -36,8 +36,12 @@ pre {
   top: 1.5em;
   left: 0;
   width: 2.5em;
-  font-size: inherit;
+  font-family: monospace;
   text-align: right;
+}
+
+.paste-form label, .paste-form input {
+  display: block;
 }
 
 .menu {

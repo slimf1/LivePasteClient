@@ -8,7 +8,7 @@ const LineNumbers: React.FC<LineNumbersProps> = ({
 }) => {
   const elements: JSX.Element[] = [];
   for(let i = 0; i < lineNumbers; ++i) {
-    elements.push(<span>{i + 1}<br /></span>)
+    elements.push(<span key={i}>{i + 1}<br /></span>);
   }
   return (
     <div className="line-numbers">
