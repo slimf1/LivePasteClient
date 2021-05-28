@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Editor from '../components/Editor';
-import { API_BASE_URL } from '../Constants';
+import Options from '../components/Options';
+import { API_BASE_URL, DEFAULT_LANGUAGE } from '../Constants';
 
 const Home: React.FC = () => {
   const history = useHistory();
   const [error, setError] = useState<string | null>(null);
+  const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
   // TODO : implémenter l'erreur
+
+  const handleLanguageChange = (newLanguage: string) => {
+    setLanguage(newLanguage);
+  }
 
   const handleSave = (content: string): void => {
     if (content.length === 0) return;
@@ -18,7 +24,7 @@ const Home: React.FC = () => {
       },
       body: JSON.stringify({
         content: content,
-        language: 'c'
+        language: language
       })
     }).then(async response => {
       if (response.status === 201) {
@@ -33,9 +39,14 @@ const Home: React.FC = () => {
   }
 
   return (
-    <Editor
-      onSave={handleSave}
-    />
+    <>
+      <Options 
+        onLanguageChange={handleLanguageChange}
+      />
+      <Editor
+        onSave={handleSave}
+      />
+    </>
   );
 }
 
