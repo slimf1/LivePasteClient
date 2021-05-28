@@ -27,7 +27,7 @@ const Paste: React.FC = () => {
       if (response.status === 200) {
         const paste = await response.json();
         setPasteData(paste);
-        if (languages.includes(paste.language)) {
+        if (!lang && languages.includes(paste.language)) {
           history.push(`/pastes/${paste.pasteID}/${paste.language}`)
         }
       } else {
