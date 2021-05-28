@@ -13,6 +13,7 @@
 .hljs-symbol,
 .hljs-name {
   color: #569CD6;
+  font-weight: 400 !important;
 }
 .hljs-link {
   color: #569CD6;
@@ -45,6 +46,7 @@
 .hljs-params,
 .hljs-formula {
   color: #DCDCDC;
+  font-weight: 400 !important;
 }
 
 .hljs-comment,
@@ -72,6 +74,7 @@
 .hljs-attr,
 .hljs-attribute {
   color: #9CDCFE;
+  font-weight: 400 !important;
 }
 
 .hljs-section {
@@ -97,6 +100,7 @@
 .hljs-selector-attr,
 .hljs-selector-pseudo {
   color: #D7BA7D;
+  font-weight: 400 !important;
 }
 
 .hljs-addition {

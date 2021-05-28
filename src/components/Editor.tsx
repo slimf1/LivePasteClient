@@ -3,8 +3,6 @@ import useEventListener from '../hooks/useEventListener';
 import LineNumbers from './LineNumbers';
 
 const keyPressed = new Map<string, boolean>();
-keyPressed.set('control', false);
-keyPressed.set('s', false);
 
 interface EditorProps {
   onSave?: (content: string) => any;

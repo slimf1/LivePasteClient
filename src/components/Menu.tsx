@@ -1,4 +1,3 @@
-import { listLanguages } from 'highlight.js';
 import React from 'react';
 
 const Menu: React.FC = () => {

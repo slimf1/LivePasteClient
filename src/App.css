@@ -7,7 +7,6 @@ body {
 }
 
 .editor {
-  font-size: 8.5pt;
   font-family: monospace;
   display: inline-block;
   background: none;
@@ -31,6 +30,7 @@ pre {
 }
 
 .line-numbers {
+  font-size: 8.5pt;
   color: inherit;
   position: absolute;
   top: 1.5em;

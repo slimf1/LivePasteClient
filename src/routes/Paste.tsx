@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import StaticEditor from '../components/StaticEditor';
 import { API_BASE_URL } from '../Constants';
 import { highlight, highlightBlock, listLanguages } from 'highlight.js';
-import LineNumbers from '../components/LineNumbers';
 
 interface ParamTypes {
   pasteID: string;
@@ -12,9 +11,11 @@ interface ParamTypes {
 const Paste: React.FC = () => {
   const editorRef = useRef<HTMLElement>(null);
   const { pasteID, lang } = useParams<ParamTypes>();
-  const [pasteContent, setPasteContent] = useState('');
+  const [pasteData, setPasteData] = useState<any>({content: ''});
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const numericPasteID = parseInt(pasteID);
+  const history = useHistory();
+  const languages = listLanguages();
   
   useEffect(() => {
     fetch(`${API_BASE_URL}pastes/${numericPasteID}`, {
@@ -23,10 +24,12 @@ const Paste: React.FC = () => {
         'Content-Type': 'application/json'
       }
     }).then(async response => {
-      console.log(response);
       if (response.status === 200) {
         const paste = await response.json();
-        setPasteContent(paste.content);
+        setPasteData(paste);
+        if (languages.includes(paste.language)) {
+          history.push(`/pastes/${paste.pasteID}/${paste.language}`)
+        }
       } else {
         setErrorMessage(`${response.status} ${response.statusText}`);
       }
@@ -60,7 +63,7 @@ const Paste: React.FC = () => {
   return (
     <StaticEditor
       innerRef={editorRef}
-      content={pasteContent}
+      content={pasteData.content}
       lineNumbers
     />
   );
