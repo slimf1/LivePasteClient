@@ -11,8 +11,8 @@ function App() {
 
   return (
     <>
-      <Menu />
       <Router history={history}>
+        <Menu />
         <Main />
       </Router>
     </>

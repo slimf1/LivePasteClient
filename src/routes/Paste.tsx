@@ -4,6 +4,8 @@ import StaticEditor from '../components/StaticEditor';
 import { API_BASE_URL } from '../Constants';
 import { highlight, highlightBlock, listLanguages } from 'highlight.js';
 
+const languages = listLanguages();
+
 interface ParamTypes {
   pasteID: string;
   lang?: string;
@@ -15,7 +17,6 @@ const Paste: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const numericPasteID = parseInt(pasteID);
   const history = useHistory();
-  const languages = listLanguages();
   
   useEffect(() => {
     fetch(`${API_BASE_URL}pastes/${numericPasteID}`, {
