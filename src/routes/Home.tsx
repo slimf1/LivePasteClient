@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Editor from '../components/Editor';
 import Options from '../components/Options';
-import { API_BASE_URL, DEFAULT_LANGUAGE } from '../Constants';
+import { API_BASE_URL } from '../Constants';
 
 const Home: React.FC = () => {
   const history = useHistory();
   const [error, setError] = useState<string | null>(null);
-  const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
+  const [language, setLanguage] = useState<string | null>(null);
   // TODO : implémenter l'erreur
 
   const handleLanguageChange = (newLanguage: string) => {

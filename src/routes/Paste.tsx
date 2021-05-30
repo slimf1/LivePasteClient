@@ -17,7 +17,7 @@ const Paste: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const numericPasteID = parseInt(pasteID);
   const history = useHistory();
-  
+   
   useEffect(() => {
     fetch(`${API_BASE_URL}pastes/${numericPasteID}`, {
       mode: 'cors',

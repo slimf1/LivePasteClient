@@ -24,6 +24,10 @@ const Editor: React.FC<EditorProps> = ({
 
   const handleKeyDown = (e: Event) => {
     const event = e as KeyboardEvent;
+    if (editorTextAreaRef.current !== null) {
+      editorTextAreaRef.current.style.height = 'inherit';
+      editorTextAreaRef.current.style.height = `${editorTextAreaRef.current.scrollHeight}px`; 
+    }
     const key = event.key.toLowerCase();
     if (keyPressed.has(key)) {
       keyPressed.set(key, true);
