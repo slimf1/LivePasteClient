@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useRef } from 'react';
 
 export default function useEventListener<T extends HTMLElement = HTMLDivElement>(
-  el: RefObject<T>, eventType: keyof WindowEventMap, handler: (event: Event) => any
+  el: RefObject<T>, eventType: keyof WindowEventMap, handler: (event: Event) => void
 ) {
   const savedHandler = useRef<(event: Event) => void>();
 

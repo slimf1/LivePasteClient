@@ -20,5 +20,5 @@ const Menu: React.FC = () => {
     </div>
   );
 }
-// Mettre le tuto que sur la page d'accueil => utiliser un ctx?
+
 export default Menu;

@@ -5,7 +5,7 @@ import LineNumbers from './LineNumbers';
 const keyPressed = new Map<string, boolean>();
 
 interface EditorProps {
-  onSave?: (content: string) => any;
+  onSave?: (content: string) => void;
 }
 const Editor: React.FC<EditorProps> = ({
   onSave
