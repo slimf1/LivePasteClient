@@ -22,9 +22,6 @@ const Options: React.FC<OptionsProps> = ({
       className="paste-form"
       onChange={handleChange}
     >
-      <p>
-        Use <kbd>ctrl</kbd> + <kbd>s</kbd> to save
-      </p>
       <label htmlFor="language">
         Language
       </label>

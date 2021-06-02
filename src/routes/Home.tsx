@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Editor from '../components/Editor';
 import Options from '../components/Options';
 import { API_BASE_URL } from '../Constants';
+import { toAlphaNum } from '../Utils';
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -15,7 +16,7 @@ const Home: React.FC = () => {
   }
 
   const handleSave = (content: string): void => {
-    if (content.length === 0) return;
+    if (toAlphaNum(content).length === 0) return;
     fetch(`${API_BASE_URL}pastes/`, {
       mode: 'cors', 
       method: 'POST',
