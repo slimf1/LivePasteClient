@@ -17,7 +17,7 @@ body {
   resize: none;
 	/*width: 95%;
 	height: 90vh;*/
-  padding: 1.5em 0 0 4em;
+  padding: 1.5em 0 1.5em 4em;
   color: #dcdcdc;
 }
 
@@ -109,4 +109,13 @@ kbd {
   line-height: 1;
   padding: 2px 4px;
   white-space: nowrap;
+}
+
+.alert {
+  z-index: 1000;
+  position: relative;
+}
+
+.alert-hide {
+  display: none;
 }

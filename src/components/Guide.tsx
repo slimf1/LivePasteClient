@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Alert from './Alert';
 
 const Guide: React.FC = () => {
+  const [show, setShow] = useState(false);
   return (
     <ul>
       <li>
@@ -9,6 +11,13 @@ const Guide: React.FC = () => {
       <li>
         Test
       </li>
+      <Alert show={show}>
+        <p>Coucou</p>
+      </Alert>
+      <button onClick={() => setShow(!show)}>
+        show/hide
+      </button>
+
     </ul>
   );
 }

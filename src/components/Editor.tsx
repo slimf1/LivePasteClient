@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import useEventListener from '../hooks/useEventListener';
+import { useShortcut } from '../hooks/useShortcut';
 import LineNumbers from './LineNumbers';
 
 const keyPressed = new Map<string, boolean>();
@@ -50,6 +51,10 @@ const Editor: React.FC<EditorProps> = ({
   
   useEventListener(editorTextAreaRef, 'keydown', handleKeyDown);
   useEventListener(editorTextAreaRef, 'keyup', handleKeyUp);
+
+  useShortcut(editorTextAreaRef, ['control', 'v'], () => {
+    console.log('control n');
+  });
 
   return (
     <>
