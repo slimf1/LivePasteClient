@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface AlertProps {
   show?: boolean;
-  onClose?: () => void;
-  closeButton?: boolean;
 }
-const Alert: React.FC<AlertProps> = (
-  props
-) => {
+const Alert: React.FC<AlertProps> = ({
+  show,
+  children
+}) => {
   return (
     <div 
-      className={`alert ${!props.show ? 'alert-hide' : ''}`}
+      className={`alert ${!show ? 'fade-out' : 'fade-in'}`}
     >
-      {props.children}
-      {props.closeButton ? 'x' : ''}
+      {children}
     </div>
   );
 }

@@ -3,8 +3,6 @@ import useEventListener from '../hooks/useEventListener';
 import { useShortcut } from '../hooks/useShortcut';
 import LineNumbers from './LineNumbers';
 
-const keyPressed = new Map<string, boolean>();
-
 interface EditorProps {
   onSave?: (content: string) => void;
 }
@@ -14,46 +12,29 @@ const Editor: React.FC<EditorProps> = ({
   const editorTextAreaRef = useRef<HTMLTextAreaElement>(null);
   const [textValue, setTextValue] = useState<string>(''); 
 
-  useEffect(() => {
-    keyPressed.set('control', false);
-    keyPressed.set('s', false);
-  }, []);
-
-  const handleChange = (e: ChangeEvent) => {
+  const handleChange = () => {
     setTextValue(editorTextAreaRef.current?.value ?? '');
   }
 
-  const handleKeyDown = (e: Event) => {
-    const event = e as KeyboardEvent;
+  const handleKeyDown = () => {
     if (editorTextAreaRef.current !== null) {
       editorTextAreaRef.current.style.height = 'inherit';
       editorTextAreaRef.current.style.height = `${editorTextAreaRef.current.scrollHeight}px`; 
     }
-    const key = event.key.toLowerCase();
-    if (keyPressed.has(key)) {
-      keyPressed.set(key, true);
-    }
-    if (keyPressed.get('control') && keyPressed.get('s')) {
-      e.preventDefault();
-      console.log('save doc');
-      if (onSave !== undefined)
-        onSave(editorTextAreaRef.current?.value ?? '');
-    }
   }
 
-  const handleKeyUp = (e: Event) => {
-    const event = e as KeyboardEvent;
-    const key = event.key.toLowerCase();
-    if (keyPressed.has(key)) {
-      keyPressed.set(key, false);
-    }
-  }
-  
   useEventListener(editorTextAreaRef, 'keydown', handleKeyDown);
-  useEventListener(editorTextAreaRef, 'keyup', handleKeyUp);
 
-  useShortcut(editorTextAreaRef, ['control', 'v'], () => {
+  useShortcut(editorTextAreaRef, ['control', 'n'], evt => {
+    evt.preventDefault();
     console.log('control n');
+  });
+
+  useShortcut(editorTextAreaRef, ['control', 's'], evt => {
+    evt.preventDefault();
+    console.log('save doc');
+    if (onSave !== undefined)
+      onSave(editorTextAreaRef.current?.value ?? '');
   });
 
   return (
