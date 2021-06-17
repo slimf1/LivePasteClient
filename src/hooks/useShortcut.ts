@@ -4,8 +4,8 @@ import useEventListener from "./useEventListener";
 const pressedKeys = new Map<string, boolean>();
 
 export const useShortcut = (elementRef: React.RefObject<any>, keys: Array<string>, callback: (e: KeyboardEvent) => void)  => {
-
   const savedCallback = useRef<(e: KeyboardEvent) => void>();
+
   useEffect(() => {
     for(const key of keys) {
       pressedKeys.set(key, false);
@@ -22,6 +22,7 @@ export const useShortcut = (elementRef: React.RefObject<any>, keys: Array<string
     if (pressedKeys.has(key)) {
       pressedKeys.set(key, true);
     }
+    console.log(pressedKeys);
     if (keys.every(key => pressedKeys.get(key))) {
       if(!!savedCallback.current) {
         savedCallback.current(event);

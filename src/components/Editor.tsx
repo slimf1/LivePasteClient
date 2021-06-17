@@ -24,12 +24,7 @@ const Editor: React.FC<EditorProps> = ({
   }
 
   useEventListener(editorTextAreaRef, 'keydown', handleKeyDown);
-
-  useShortcut(editorTextAreaRef, ['control', 'n'], evt => {
-    evt.preventDefault();
-    console.log('control n');
-  });
-
+  
   useShortcut(editorTextAreaRef, ['control', 's'], evt => {
     evt.preventDefault();
     console.log('save doc');

@@ -8,7 +8,7 @@ const Alert: React.FC<AlertProps> = ({
   children
 }) => {
   return (
-    <div 
+    <div
       className={`alert ${!show ? 'fade-out' : 'fade-in'}`}
     >
       {children}
